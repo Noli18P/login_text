@@ -56,9 +56,15 @@ def crear_cuenta():
     escribir_archivo = open('D:\\vs_programs\\automatizar\\login\\login_info.txt', 'a')
     escribir_archivo.write('\n'+ crear_usuario_archivo + ' ' + craer_contrasenia_archivo)
     escribir_archivo.close()
-#TODO eliminar cuenta
 
-#TODO salir
+
+def eliminar_cuenta():
+    usuario_file = open('D:\\vs_programs\\automatizar\\login\\login_info.txt', 'r')
+    info_texto = usuario_file.read()
+    info_texto = info_texto.split()
+
+    print(info_texto)
+
 
 def main():
     print(menu)
@@ -72,8 +78,7 @@ def main():
         elif eleccion == 3:
             crear_cuenta()
         elif eleccion == 4:
-            pass
-            #funcion eliminar cuenta
+            eliminar_cuenta()
         else:
             sys.exit()
     
