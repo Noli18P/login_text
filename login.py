@@ -31,15 +31,16 @@ def inicio_sesion():
     contrasenia = input('Ingresa tu contraseña: ')
     if usuario in info_texto and contrasenia in info_texto:
         print('=====Acceso concedido=====')
+        global sesion_iniciada 
         sesion_iniciada = True
         main()
     else:
         print('Tu usuario o contraseña son incorrectas, vuelve a intentarlo')
         inicio_sesion()
 
-#TODO cerrar sesion
+
 def cerrar_sesion():
-    sesion_iniciada = sesion_iniciada
+    global sesion_iniciada 
     if sesion_iniciada == True:
         print('=====Sesion cerrada=====')
         sesion_iniciada = False
@@ -47,24 +48,29 @@ def cerrar_sesion():
     else:
         print('Primero debes iniciar sesion!')
         main()
-#TODO crear cuenta
 
+
+def crear_cuenta():
+    crear_usuario_archivo = input('Ingresa tu nombre de usuario: ')
+    craer_contrasenia_archivo = input('Ingresa tu contraseña: ')
+    escribir_archivo = open('D:\\vs_programs\\automatizar\\login\\login_info.txt', 'a')
+    escribir_archivo.write('\n'+ crear_usuario_archivo + ' ' + craer_contrasenia_archivo)
+    escribir_archivo.close()
 #TODO eliminar cuenta
 
 #TODO salir
 
 def main():
     print(menu)
-    eleccion = ''
+    eleccion = 0
     while eleccion != 5:
-        eleccion = input('Ingrese la opción de su elección: ')
+        eleccion = int(input('Ingrese la opción de su elección: '))
         if eleccion == 1:
             inicio_sesion()
         elif eleccion == 2:
             cerrar_sesion()
         elif eleccion == 3:
-            pass
-            #funcion crear cuenta
+            crear_cuenta()
         elif eleccion == 4:
             pass
             #funcion eliminar cuenta
