@@ -16,8 +16,22 @@ Estas estarán en un lugar seguro, no te preocupes
     4 - Salir
 """
 
-#TODO iniciar sesion
+usuario = ''
+contrasenia = ''
 
+#TODO iniciar sesion
+def inicio_sesion():
+    usuario_file = open('D:\\vs_programs\\automatizar\\login\\login_info.txt', 'r')
+    info_texto = usuario_file.read()
+    info_texto = info_texto.split()
+    
+    usuario = input('Ingresa tu nombre de usuario: ')
+    contrasenia = input('Ingresa tu contraseña: ')
+    if usuario in info_texto and contrasenia in info_texto:
+        print('=====Acceso concedido=====')
+    else:
+        print('Tu usuario o contraseña son incorrectas, vuelve a intentarlo')
+        inicio_sesion()
 #TODO crear cuenta
 
 #TODO eliminar cuenta
@@ -40,3 +54,6 @@ def main():
             #funcion eliminar cuenta
         else:
             sys.exit()
+    
+if __name__ == "__main__":
+    inicio_sesion()
