@@ -1,6 +1,8 @@
 #python3
 #Pequeño programa de inicio de sesión, la información será guardada en un documento de texto
 
+import sys
+
 menu = """
 Bienvenido a mi sistema de Login, en el podrás
 crear un usuario y contraseña, iniciar sesion y
@@ -21,3 +23,20 @@ Estas estarán en un lugar seguro, no te preocupes
 #TODO eliminar cuenta
 
 #TODO salir
+
+def main():
+    print(menu)
+    eleccion = ''
+    while eleccion != 4:
+        eleccion = input('Ingrese la opción de su elección: ')
+        if eleccion == 1:
+            pass
+            #funcion inicio sesion
+        elif eleccion == 2:
+            pass
+            #funcion crear cuenta
+        elif eleccion == 3:
+            pass
+            #funcion eliminar cuenta
+        else:
+            sys.exit()
